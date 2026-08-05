@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>JoziNites Admin</title>
+  <link rel="stylesheet" href="/styles.css">
+  <style> .admin-wrap{max-width:720px;margin:2rem auto;padding:1rem;background:rgba(0,0,0,0.35);border-radius:8px}textarea{width:100%;height:320px;font-family:monospace;color:#e6eef8;background:#071226;border:1px solid rgba(255,255,255,0.04);padding:0.5rem;border-radius:6px}</style>
+</head>
+<body>
+  <div class="wrap admin-wrap">
+    <h1>JoziNites Admin — Edit links.json</h1>
+    <p>Paste the JSON for <code>links.json</code> below and click Save. Changes will be committed to the <code>main</code> branch.</p>
+    <label>Admin secret: <input id="admin-secret" type="password" placeholder="ADMIN_SECRET"></label>
+    <textarea id="json-area"></textarea>
+    <div style="margin-top:1rem">
+      <button id="save">Save to GitHub</button>
+      <span id="status" style="margin-left:1rem;color:var(--muted)"></span>
+    </div>
+  </div>
+
+  <script>
+    async function load() {
+      const res = await fetch('/links.json');
+      const data = await res.text();
+      document.getElementById('json-area').value = data;
+    }
+    load();
+
+    document.getElementById('save').addEventListener('click', async () => {
+      const secret = document.getElementById('admin-secret').value;
+      const content = document.getElementById('json-area').value;
+      const status = document.getElementById('status');
+      status.textContent = 'Saving...';
+      try {
+        const res = await fetch('/api/update-links', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json', 'x-admin-secret': secret },
+          body: JSON.stringify({ content })
+        });
+        const body = await res.json();
+        if (res.ok) {
+          status.textContent = 'Saved — committed: ' + body.commit;
+        } else {
+          status.textContent = 'Error: ' + (body.error || res.statusText);
+        }
+      } catch (err) {
+        status.textContent = 'Network error';
+      }
+    });
+  </script>
+</body>
+</html>

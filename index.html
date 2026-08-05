@@ -1,4 +1,4 @@
-<!-- index.html (modified for PWA) -->
+<!-- index.html (PWA + admin UI links) -->
 <!doctype html>
 <html lang="en">
 <head>
@@ -20,6 +20,7 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 </head>
 <body>
+  <div class="site-overlay" aria-hidden="true"></div>
   <header class="site-header">
     <div class="wrap">
       <img src="assets/logo.svg" alt="JoziNites" class="logo">
@@ -49,7 +50,8 @@
     <section id="links" class="linktree-section">
       <div class="wrap linktree-wrap">
         <div class="profile">
-          <img id="profile-avatar" src="assets/avatar.svg" alt="avatar" class="avatar">
+          <!-- Use JBP.jpeg as default profile image; links.json avatar (if present) will override -->
+          <img id="profile-avatar" src="/assets/JBP.jpeg" alt="avatar" class="avatar">
           <div class="profile-text">
             <div id="profile-name" class="profile-name">JoziNites</div>
             <div id="profile-bio" class="profile-bio">Your directory for the best venues &amp; events</div>
@@ -61,6 +63,8 @@
         </div>
 
         <p class="link-hint">Edit links at <code>links.json</code> in this repository to add or reorder buttons.</p>
+
+        <p style="margin-top:1rem"><a href="/admin.html" style="color:var(--muted);text-decoration:underline">Open Admin UI</a></p>
       </div>
     </section>
 
