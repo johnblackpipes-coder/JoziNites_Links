@@ -1,0 +1,15 @@
+{
+  "name": "JoziNites",
+  "bio": "Your directory for the best venues & events",
+  "avatar": "assets/avatar.svg",
+  "themeColor": "#ff6b6b",
+  "links": [
+    { "title": "Latest Events", "url": "https://example.com/events", "subtitle": "Shows & parties", "platform": "generic" },
+    { "title": "Venue Directory", "url": "https://example.com/venues", "platform": "generic" },
+    { "title": "Twitter", "url": "https://twitter.com/", "platform": "twitter" },
+    { "title": "Instagram", "url": "https://instagram.com/", "platform": "instagram" },
+    { "title": "Fetlife", "url": "https://fetlife.com/", "platform": "fetlife" },
+    { "title": "OnlyFans", "url": "https://onlyfans.com/", "platform": "onlyfans" },
+    { "title": "More Links", "url": "https://example.com/more", "subtitle": "See everything else", "platform": "generic" }
+  ]
+}

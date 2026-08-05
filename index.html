@@ -1,3 +1,4 @@
+<!-- index.html (modified) -->
 <!doctype html>
 <html lang="en">
 <head>
@@ -29,6 +30,25 @@
         <div class="hero-art">
           <img src="assets/hero-illustration.svg" alt="Nightlife illustration">
         </div>
+      </div>
+    </section>
+
+    <!-- Linktree-style profile + links. Script will populate from links.json -->
+    <section id="links" class="linktree-section">
+      <div class="wrap linktree-wrap">
+        <div class="profile">
+          <img id="profile-avatar" src="assets/avatar.svg" alt="avatar" class="avatar">
+          <div class="profile-text">
+            <div id="profile-name" class="profile-name">JoziNites</div>
+            <div id="profile-bio" class="profile-bio">Your directory for the best venues & events</div>
+          </div>
+        </div>
+
+        <div id="link-list" class="link-list" aria-live="polite">
+          <!-- Links injected here -->
+        </div>
+
+        <p class="link-hint">Edit links at <code>links.json</code> in this repository to add or reorder buttons.</p>
       </div>
     </section>
 
@@ -71,5 +91,7 @@
   <footer class="site-footer">
     <div class="wrap">© JoziNites Links</div>
   </footer>
+
+  <script src="app.js"></script>
 </body>
 </html>
