@@ -1,0 +1,12 @@
+{
+  "name": "JoziNites Links",
+  "short_name": "JoziNites",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#071226",
+  "theme_color": "#ff6b6b",
+  "icons": [
+    { "src": "/assets/logo-black.png", "sizes": "192x192", "type": "image/png" },
+    { "src": "/assets/logo-white.png", "sizes": "512x512", "type": "image/png" }
+  ]
+}

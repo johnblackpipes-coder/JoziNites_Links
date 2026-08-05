@@ -67,3 +67,12 @@ async function loadLinks() {
 }
 
 window.addEventListener('DOMContentLoaded', loadLinks);
+
+// Register service worker if available (keeps registration in app.js as well)
+if ('serviceWorker' in navigator) {
+  window.addEventListener('load', () => {
+    navigator.serviceWorker.register('/sw.js')
+      .then(reg => console.log('SW registered from app.js', reg.scope))
+      .catch(err => console.warn('SW register failed', err));
+  });
+}

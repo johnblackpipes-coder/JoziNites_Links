@@ -1,4 +1,4 @@
-<!-- index.html (modified) -->
+<!-- index.html (modified for PWA) -->
 <!doctype html>
 <html lang="en">
 <head>
@@ -6,6 +6,18 @@
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <title>JoziNites Links</title>
   <link rel="stylesheet" href="styles.css">
+
+  <!-- PWA / Social -->
+  <link rel="manifest" href="/manifest.webmanifest">
+  <meta name="theme-color" content="#ff6b6b">
+  <meta property="og:title" content="JoziNites Links">
+  <meta property="og:description" content="Your directory for the best venues & events">
+  <meta property="og:image" content="/assets/logo-black.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <!-- Apple -->
+  <link rel="apple-touch-icon" href="/assets/logo-black.png">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 </head>
 <body>
   <header class="site-header">
@@ -40,7 +52,7 @@
           <img id="profile-avatar" src="assets/avatar.svg" alt="avatar" class="avatar">
           <div class="profile-text">
             <div id="profile-name" class="profile-name">JoziNites</div>
-            <div id="profile-bio" class="profile-bio">Your directory for the best venues & events</div>
+            <div id="profile-bio" class="profile-bio">Your directory for the best venues &amp; events</div>
           </div>
         </div>
 
@@ -93,5 +105,15 @@
   </footer>
 
   <script src="app.js"></script>
+  <script>
+    // Register service worker for offline / installable behaviour
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('/sw.js')
+          .then(reg => console.log('SW registered', reg.scope))
+          .catch(err => console.warn('SW registration failed', err));
+      });
+    }
+  </script>
 </body>
 </html>
