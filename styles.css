@@ -1,0 +1,35 @@
+/* styles.css - simple responsive styling inspired by the Canva template */
+:root{
+  --bg:#0f1724;
+  --card:#0b1220;
+  --accent:#ff6b6b;
+  --muted:#94a3b8;
+  --text:#e6eef8;
+  --max-width:1100px;
+}
+*{box-sizing:border-box}
+html,body{height:100%;margin:0;font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,'Helvetica Neue',Arial;color:var(--text);background:linear-gradient(180deg,#071226 0%, #071d2a 100%);}
+.wrap{max-width:var(--max-width);margin:0 auto;padding:1.25rem}
+.site-header{padding:0.75rem 0;background:transparent}
+.site-header .wrap{display:flex;align-items:center;justify-content:space-between}
+.logo{height:40px}
+.nav a{color:var(--muted);margin-left:1rem;text-decoration:none}
+.nav .btn{background:transparent;border:1px solid rgba(255,255,255,0.08);padding:0.5rem 0.75rem;border-radius:6px;color:var(--text)}
+.hero{padding:3rem 0}
+.hero-inner{display:flex;gap:2rem;align-items:center}
+.hero-copy{flex:1}
+.hero-copy h1{font-size:2.25rem;margin:0 0 .5rem}
+.hero-copy p{color:var(--muted);margin:0 0 1.25rem}
+.cta{display:inline-block;background:var(--accent);color:#081018;padding:0.75rem 1rem;border-radius:8px;text-decoration:none;font-weight:600}
+.hero-art{flex:1}
+.hero-art img{width:100%;max-width:420px}
+.features{padding:2.5rem 0}
+.features h2{margin-top:0}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:1rem;margin-top:1rem}
+.card{background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));padding:1rem;border-radius:12px;border:1px solid rgba(255,255,255,0.03)}
+.about, .contact{padding:2rem 0}
+.site-footer{padding:1.25rem 0;text-align:center;color:var(--muted);border-top:1px solid rgba(255,255,255,0.02)}
+@media (max-width:800px){
+  .hero-inner{flex-direction:column;text-align:center}
+  .nav{display:none}
+}
